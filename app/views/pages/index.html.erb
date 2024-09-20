@@ -9,10 +9,16 @@
 </head>
 <body>
   <h1>Rick and Morty</h1>
-  <form id="episode-form">
+
+<form id="episode-form" data-controller="episode" data-action="submit->episode#submit" data-episode-target="form">
+  <input type="text" id="season-episode" placeholder="Enter Season and Episode (e.g., S01E01)">
+  <button type="submit" class="search-button">Charaters in Episode</button>
+</form>
+
+  <%# <form id="episode-form">
     <input id="season-episode" type="text" class="search-bar" placeholder="Episode code: e.g S03E07">
     <input type="submit" class="search-button" value="Characters in Episode">
-  </form>
+  </form> %>
   <br>
   <div id="character-bar">
     <br>
