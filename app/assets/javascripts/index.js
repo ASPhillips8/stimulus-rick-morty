@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("episode-form")
-  const thumbCharacter = document.getElementById("character-bar")
+  // const form = document.getElementById("episode-form")
+  // const thumbCharacter = document.getElementById("character-bar")
   const characterSpecs = document.getElementById("character-preview")
   const episodeList = document.getElementById("episode-list")
   const saveEpisode = document.querySelector("#saved-episodes")
@@ -8,37 +8,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let savedEpisodeNames = new Set()
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault()
-    thumbCharacter.innerText = ""
+  // form.addEventListener("submit", (event) => {
+  //   event.preventDefault()
+  //   thumbCharacter.innerText = ""
 
-    const seasonEpisodeInput = document.getElementById("season-episode").value
-    const url = `https://rickandmortyapi.com/api/episode/?episode=${seasonEpisodeInput}`
+  //   const seasonEpisodeInput = document.getElementById("season-episode").value
+  //   const url = `https://rickandmortyapi.com/api/episode/?episode=${seasonEpisodeInput}`
 
-    fetch(url)
-      .then((response) => response.json())
-      .then((apiEpisodeData) => {
-        let characters = apiEpisodeData.results[0].characters
-        characters.forEach((characterUrl) => renderCharacters(characterUrl))
-      })
-      .catch((error) => alert("Error getting characters:", error.message))
-  })
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((apiEpisodeData) => {
+  //       let characters = apiEpisodeData.results[0].characters
+  //       characters.forEach((characterUrl) => renderCharacters(characterUrl))
+  //     })
+  //     .catch((error) => alert("Error getting characters:", error.message))
+  // })
 
-  function renderCharacters(characterUrl) {
-    fetch(characterUrl)
-      .then((response) => response.json())
-      .then((character) => {
-        const img = document.createElement("img")
-        img.src = `${character.image}`
-        img.alt = `${character.name}`
-        img.classList.add("thumb-img")
-        thumbCharacter.appendChild(img)
-        img.addEventListener("mouseover", () => {
-          showCharacter(character)
-        })
-      })
-      .catch((error) => alert("Error showing Characters:", error.message))
-  }
+  // function renderCharacters(characterUrl) {
+  //   fetch(characterUrl)
+  //     .then((response) => response.json())
+  //     .then((character) => {
+  //       const img = document.createElement("img")
+  //       img.src = `${character.image}`
+  //       img.alt = `${character.name}`
+  //       img.classList.add("thumb-img")
+  //       thumbCharacter.appendChild(img)
+  //       img.addEventListener("mouseover", () => {
+  //         showCharacter(character)
+  //       })
+  //     })
+  //     .catch((error) => alert("Error showing Characters:", error.message))
+  // }
 
   function showCharacter(character) {
     characterSpecs.textContent = ""
